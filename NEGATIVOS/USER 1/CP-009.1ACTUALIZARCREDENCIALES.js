@@ -20,46 +20,58 @@ describe('CP009.1 - ACTUALIZAR CREDENCIALES', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | css=.grid-sidebar:nth-child(9) strong | 
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login | 
+    await driver.findElement(By.name("login")).click()
+    // 8 | click | css=.grid-sidebar:nth-child(9) strong | 
     await driver.findElement(By.css(".grid-sidebar:nth-child(9) strong")).click()
-    // 4 | click | id=v-pills-profile-tab | 
+    // 9 | click | id=v-pills-profile-tab | 
     // OPTION CHANGE PASSWORD
     await driver.findElement(By.id("v-pills-profile-tab")).click()
-    // 5 | click | name=old_password | 
+    // 10 | click | name=old_password | 
     await driver.findElement(By.name("old_password")).click()
-    // 6 | type | name=old_password | wrongpassword
+    // 11 | type | name=old_password | wrongpassword
     // OLD PASSWORD
     await driver.findElement(By.name("old_password")).sendKeys("wrongpassword")
-    // 7 | click | name=new_password | 
+    // 12 | click | name=new_password | 
     await driver.findElement(By.name("new_password")).click()
-    // 8 | type | name=new_password | cr7junior
+    // 13 | type | name=new_password | cr7junior
     // NEW PASSWORD
     await driver.findElement(By.name("new_password")).sendKeys("cr7junior")
-    // 9 | click | name=ver_password | 
+    // 14 | click | name=ver_password | 
     await driver.findElement(By.name("ver_password")).click()
-    // 10 | type | name=ver_password | cr7junior
+    // 15 | type | name=ver_password | cr7junior
     // REPEAT - NEW PASSWORD
     await driver.findElement(By.name("ver_password")).sendKeys("cr7junior")
-    // 11 | assertElementPresent | css=.text-center:nth-child(5) > .btn | Save Changes
+    // 16 | assertElementPresent | css=.text-center:nth-child(5) > .btn | Save Changes
     // GUARDAR LOS DATOS DE CHANGE PASSWORD
     {
       const elements = await driver.findElements(By.css(".text-center:nth-child(5) > .btn"))
       assert(elements.length)
     }
-    // 12 | click | id=v-pills-home-tab | 
+    // 17 | click | id=v-pills-home-tab | 
     // OPTION EMAIL OR USERNAME
     await driver.findElement(By.id("v-pills-home-tab")).click()
-    // 13 | click | id=exampleInputEmail1 | 
+    // 18 | click | id=exampleInputEmail1 | 
     await driver.findElement(By.id("exampleInputEmail1")).click()
-    // 14 | type | id=exampleInputEmail1 | marta00@gmail.com
+    // 19 | type | id=exampleInputEmail1 | marta00@gmail.com
     // ACTUALIZAR EMAIL
     await driver.findElement(By.id("exampleInputEmail1")).sendKeys("marta00@gmail.com")
-    // 15 | click | id=exampleInputPassword1 | 
+    // 20 | click | id=exampleInputPassword1 | 
     await driver.findElement(By.id("exampleInputPassword1")).click()
-    // 16 | type | id=exampleInputPassword1 | BrownJh
+    // 21 | type | id=exampleInputPassword1 | BrownJh
     // ACTUALIZAR USERNAME
     await driver.findElement(By.id("exampleInputPassword1")).sendKeys("BrownJh")
-    // 17 | assertElementPresent | name=submit | Save Changes
+    // 22 | assertElementPresent | name=submit | Save Changes
     // GUARDAR LOS DATOS DE EMAIL OR USERNAME
     {
       const elements = await driver.findElements(By.name("submit"))

@@ -31,20 +31,12 @@ describe('CP006 - VISUALIZAR PROFILE', function() {
     // 6 | click | id=contact-tab | 
     // CONTACT
     await driver.findElement(By.id("contact-tab")).click()
-    // 7 | click | css=.count-following-i | 
-    // FOLLOWING
-    await driver.findElement(By.css(".count-following-i")).click()
-    // 8 | click | css=.fa-times:nth-child(1) | 
+    // 7 | click | css=.fa-times:nth-child(1) | 
     await driver.findElement(By.css(".fa-times:nth-child(1)")).click()
-    // 9 | click | css=.count-followers-i | 
-    // FOLLOWERS
-    await driver.findElement(By.css(".count-followers-i")).click()
-    // 10 | click | css=.fa-times:nth-child(1) | 
-    await driver.findElement(By.css(".fa-times:nth-child(1)")).click()
-    // 11 | assertText | css=.user-handle | @HernanPapu
+    // 8 | assertText | css=.user-handle | @HernanPapu
     // USERNAME
     assert(await driver.findElement(By.css(".user-handle")).getText() == "@HernanPapu")
-    // 12 | assertText | css=h4 | Hernan Dario
+    // 9 | assertText | css=h4 | Hernan Dario
     // NAME
     assert(await driver.findElement(By.css("h4")).getText() == "Hernan Dario")
   })

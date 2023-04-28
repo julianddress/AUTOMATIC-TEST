@@ -20,12 +20,24 @@ describe('CP004.1 - CREAR TWEET', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | name=status | 
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login | 
+    await driver.findElement(By.name("login")).click()
+    // 8 | click | name=status | 
     await driver.findElement(By.name("status")).click()
-    // 4 | type | name=status |
+    // 9 | type | name=status |
     // MESSAGE
     await driver.findElement(By.name("status")).sendKeys("")
-    // 5 | click | id=tweet-input | 
+    // 10 | click | id=tweet-input | 
     // SQUAWK
     await driver.findElement(By.id("tweet-input")).click()
   })

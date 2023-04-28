@@ -20,39 +20,51 @@ describe('CP011.1 - VISUALIZAR', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | css=.wrapper-left-active > strong | 
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login | 
+    await driver.findElement(By.name("login")).click()
+    // 9 | click | css=.wrapper-left-active > strong | 
     // HOME TAB
     await driver.findElement(By.css(".wrapper-left-active > strong")).click()
-    // 4 | click | css=.form-control | 
+    // 10 | click | css=.form-control | 
     // SEARCH
     await driver.findElement(By.css(".form-control")).click()
-    // 5 | type | css=.form-control | julian
+    // 11 | type | css=.form-control | julian
     await driver.findElement(By.css(".form-control")).sendKeys("julian")
-    // 6 | click | css=.grid-sidebar:nth-child(5) strong | 
+    // 12 | click | css=.grid-sidebar:nth-child(5) strong | 
     // NOTIFICATION TAB
     await driver.findElement(By.css(".grid-sidebar:nth-child(5) strong")).click()
-    // 7 | click | css=.form-control | 
+    // 13 | click | css=.form-control | 
     // SEARCH
     await driver.findElement(By.css(".form-control")).click()
-    // 8 | type | css=.form-control | julian
+    // 14 | type | css=.form-control | julian
     await driver.findElement(By.css(".form-control")).sendKeys("julian")
-    // 9 | click | css=.grid-sidebar:nth-child(7) strong | 
+    // 15 | click | css=.grid-sidebar:nth-child(7) strong | 
     // PROFILE TAB
     await driver.findElement(By.css(".grid-sidebar:nth-child(7) strong")).click()
-    // 10 | click | css=.search-input | 
+    // 16 | click | css=.search-input | 
     // SEARCH
     await driver.findElement(By.css(".search-input")).click()
-    // 11 | type | css=.search-input | julian
+    // 17 | type | css=.search-input | julian
     await driver.findElement(By.css(".search-input")).sendKeys("julian")
-    // 12 | click | css=.grid-sidebar:nth-child(9) strong | 
+    // 18 | click | css=.grid-sidebar:nth-child(9) strong | 
     // SETTINGS TAB
     await driver.findElement(By.css(".grid-sidebar:nth-child(9) strong")).click()
-    // 13 | click | css=.search-input | 
+    // 19 | click | css=.search-input | 
     // SEARCH
     await driver.findElement(By.css(".search-input")).click()
-    // 14 | type | css=.search-input | julian
+    // 20 | type | css=.search-input | julian
     await driver.findElement(By.css(".search-input")).sendKeys("julian")
-    // 15 | click | linkText=Julian Andres motta | 
+    // 21 | click | linkText=Julian Andres motta | 
     // BUSCA EL USUARIO
     await driver.findElement(By.linkText("Julian Andres motta")).click()
   })
