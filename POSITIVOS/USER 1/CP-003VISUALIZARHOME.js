@@ -20,16 +20,28 @@ describe('CP003 - VISUALIZAR HOME ', function() {
     await driver.get("https://tucan.toolsincloud.net/")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | assertText | css=h2 | Home
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login | 
+    await driver.findElement(By.name("login")).click()
+    // 8 | assertText | css=h2 | Home
     // HOME TAB
     assert(await driver.findElement(By.css("h2")).getText() == "Home")
-    // 4 | assertElementPresent | css=.fa | Image
+    // 9 | assertElementPresent | css=.fa | Image
     // INSERT IMAGE
     {
       const elements = await driver.findElements(By.css(".fa"))
       assert(elements.length)
     }
-    // 5 | assertElementPresent | id=tweet-input | Squawk
+    // 10 | assertElementPresent | id=tweet-input | Squawk
     // SQUAWK OPTION
     {
       const elements = await driver.findElements(By.id("tweet-input"))

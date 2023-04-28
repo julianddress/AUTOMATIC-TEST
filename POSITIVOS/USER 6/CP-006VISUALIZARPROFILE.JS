@@ -20,8 +20,8 @@ describe('CP006 - VISUALIZAR PROFILE', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | css=.grid-sidebar:nth-child(7) strong | 
-    await driver.findElement(By.css(".grid-sidebar:nth-child(7) strong")).click()
+    // 3 | click | css=.grid-sidebar:nth-child(7) img | 
+    await driver.findElement(By.css(".grid-sidebar:nth-child(7) img")).click()
     // 4 | click | id=home-tab | 
     // HOME
     await driver.findElement(By.id("home-tab")).click()
@@ -41,11 +41,11 @@ describe('CP006 - VISUALIZAR PROFILE', function() {
     await driver.findElement(By.css(".count-followers-i")).click()
     // 10 | click | css=.fa-times:nth-child(1) | 
     await driver.findElement(By.css(".fa-times:nth-child(1)")).click()
-    // 11 | assertText | css=.user-handle | @TaylorJ
+    // 11 | assertText | css=.user-handle | @JaviM02
     // USERNAME
-    assert(await driver.findElement(By.css(".user-handle")).getText() == "@TaylorJ")
-    // 12 | assertText | css=h4 | Jacob Taylor
+    assert(await driver.findElement(By.css(".user-handle")).getText() == "@JaviM02")
+    // 12 | assertText | css=h4 | javier Malagon
     // NAME
-    assert(await driver.findElement(By.css("h4")).getText() == "Jacob Taylor")
+    assert(await driver.findElement(By.css("h4")).getText() == "javier Malagon")
   })
 })

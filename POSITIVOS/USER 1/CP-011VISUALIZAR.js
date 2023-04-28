@@ -20,37 +20,49 @@ describe('CP011 - VISUALIZAR', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | css=.wrapper-left-active > strong | 
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login | 
+    await driver.findElement(By.name("login")).click()
+    // 8 | click | css=.wrapper-left-active > strong | 
     // HOME TAB
     await driver.findElement(By.css(".wrapper-left-active > strong")).click()
-    // 4 | click | css=.form-control | 
+    // 9 | click | css=.form-control | 
     // SEARCH
     await driver.findElement(By.css(".form-control")).click()
-    // 5 | type | css=.form-control | juan
+    // 10 | type | css=.form-control | juan
     await driver.findElement(By.css(".form-control")).sendKeys("juan")
-    // 6 | click | css=.grid-sidebar:nth-child(5) strong | 
+    // 11 | click | css=.grid-sidebar:nth-child(5) strong | 
     // NOTIFICATION TAB
     await driver.findElement(By.css(".grid-sidebar:nth-child(5) strong")).click()
-    // 7 | click | css=.form-control | 
+    // 12 | click | css=.form-control | 
     // SEARCH
     await driver.findElement(By.css(".form-control")).click()
-    // 8 | type | css=.form-control | juan
+    // 13 | type | css=.form-control | juan
     await driver.findElement(By.css(".form-control")).sendKeys("juan")
-    // 9 | click | css=.grid-sidebar:nth-child(7) strong | 
+    // 14 | click | css=.grid-sidebar:nth-child(7) strong | 
     // PROFILE TAB
     await driver.findElement(By.css(".grid-sidebar:nth-child(7) strong")).click()
-    // 10 | click | css=.search-input | 
+    // 15 | click | css=.search-input | 
     // SEARCH
     await driver.findElement(By.css(".search-input")).click()
-    // 11 | type | css=.search-input | juan
+    // 16 | type | css=.search-input | juan
     await driver.findElement(By.css(".search-input")).sendKeys("juan")
-    // 12 | click | css=.grid-sidebar:nth-child(9) strong | 
+    // 17 | click | css=.grid-sidebar:nth-child(9) strong | 
     // SETTINGS TAB
     await driver.findElement(By.css(".grid-sidebar:nth-child(9) strong")).click()
-    // 13 | click | css=.search-input | 
+    // 18 | click | css=.search-input | 
     // SEARCH
     await driver.findElement(By.css(".search-input")).click()
-    // 14 | type | css=.search-input | juan
+    // 19 | type | css=.search-input | juan
     await driver.findElement(By.css(".search-input")).sendKeys("juan")
   })
 })

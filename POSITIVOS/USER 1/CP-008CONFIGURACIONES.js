@@ -20,36 +20,48 @@ describe('CP008 - CONFIGURACIONES', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | css=.grid-sidebar:nth-child(9) strong | 
-    await driver.findElement(By.css(".grid-sidebar:nth-child(9) strong")).click()
-    // 4 | click | id=v-pills-profile-tab | 
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login | 
+    await driver.findElement(By.name("login")).click()
+    // 8 | click | css=.grid-sidebar:nth-child(9) img | 
+    await driver.findElement(By.css(".grid-sidebar:nth-child(9) img")).click()
+    // 9 | click | id=v-pills-profile-tab | 
     // OPTION CHANGE PASSWORD
     await driver.findElement(By.id("v-pills-profile-tab")).click()
-    // 5 | click | name=old_password | 
+    // 10 | click | name=old_password | 
     // OLD PASSWORD
     await driver.findElement(By.name("old_password")).click()
-    // 6 | click | name=new_password | 
+    // 11 | click | name=new_password | 
     // NEW PASSWORD
     await driver.findElement(By.name("new_password")).click()
-    // 7 | click | name=ver_password | 
+    // 12 | click | name=ver_password | 
     // REPEAT - NEW PASSWORD
     await driver.findElement(By.name("ver_password")).click()
-    // 8 | assertElementPresent | css=.text-center:nth-child(5) > .btn | Save Changes
+    // 13 | assertElementPresent | css=.text-center:nth-child(5) > .btn | Save Changes
     // GUARDAR LOS DATOS DE CHANGE PASSWORD
     {
       const elements = await driver.findElements(By.css(".text-center:nth-child(5) > .btn"))
       assert(elements.length)
     }
-    // 9 | click | id=v-pills-home-tab | 
+    // 14 | click | id=v-pills-home-tab | 
     // OPTION EMAIL OR USERNAME
     await driver.findElement(By.id("v-pills-home-tab")).click()
-    // 10 | click | id=exampleInputEmail1 | 
+    // 15 | click | id=exampleInputEmail1 | 
     // ACTUALIZAR EMAIL
     await driver.findElement(By.id("exampleInputEmail1")).click()
-    // 11 | click | id=exampleInputPassword1 | 
+    // 16 | click | id=exampleInputPassword1 | 
     // ACTUALIZAR USERNAME
     await driver.findElement(By.id("exampleInputPassword1")).click()
-    // 12 | assertElementPresent | name=submit | Save Changes
+    // 17 | assertElementPresent | name=submit | Save Changes
     // GUARDAR LOS DATOS DE EMAIL OR USERNAME
     {
       const elements = await driver.findElements(By.name("submit"))

@@ -20,10 +20,22 @@ describe('CP010 - INTERACCIONES', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | css=.grid-sidebar:nth-child(5) strong | 
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login | 
+    await driver.findElement(By.name("login")).click()
+    // 8 | click | css=.grid-sidebar:nth-child(5) strong | 
     // NOTIFICATION TAB
     await driver.findElement(By.css(".grid-sidebar:nth-child(5) strong")).click()
-    // 4 | assertElementPresent | css=.home-name | Notifications
+    // 9 | assertElementPresent | css=.home-name | Notifications
     // LISTA DE NOTIFICACIONES
     {
       const elements = await driver.findElements(By.css(".home-name"))

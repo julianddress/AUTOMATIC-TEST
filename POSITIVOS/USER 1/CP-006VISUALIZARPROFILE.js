@@ -20,27 +20,29 @@ describe('CP006 - VISUALIZAR PROFILE', function() {
     await driver.get("https://tucan.toolsincloud.net/home.php")
     // 2 | setWindowSize | 697x720 | 
     await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 3 | click | css=.grid-sidebar:nth-child(7) strong | 
-    await driver.findElement(By.css(".grid-sidebar:nth-child(7) strong")).click()
-    // 4 | click | id=home-tab | 
+    // 3 | click | name=email | 
+    await driver.findElement(By.name("email")).click()
+    // 4 | type | name=email | javi@gmail.com
+    // EMAIL
+    await driver.findElement(By.name("email")).sendKeys("javi@gmail.com")
+    // 5 | click | name=password | 
+    await driver.findElement(By.name("password")).click()
+    // 6 | type | name=password | javier2023
+    // PASSWORD
+    await driver.findElement(By.name("password")).sendKeys("javier2023")
+    // 7 | click | name=login |
+    await driver.findElement(By.name("login")).click()
+    // 7 | click | css=.grid-sidebar:nth-child(7) img | 
+    await driver.findElement(By.css(".grid-sidebar:nth-child(7) img")).click()
+    // 8 | click | id=home-tab | 
     // HOME
     await driver.findElement(By.id("home-tab")).click()
-    // 5 | click | id=profile-tab | 
+    // 9 | click | id=profile-tab | 
     // PROFILE
     await driver.findElement(By.id("profile-tab")).click()
-    // 6 | click | id=contact-tab | 
+    // 10 | click | id=contact-tab | 
     // CONTACT
     await driver.findElement(By.id("contact-tab")).click()
-    // 7 | click | css=.count-following-i | 
-    // FOLLOWING
-    await driver.findElement(By.css(".count-following-i")).click()
-    // 8 | click | css=.fa-times:nth-child(1) | 
-    await driver.findElement(By.css(".fa-times:nth-child(1)")).click()
-    // 9 | click | css=.count-followers-i | 
-    // FOLLOWERS
-    await driver.findElement(By.css(".count-followers-i")).click()
-    // 10 | click | css=.fa-times:nth-child(1) | 
-    await driver.findElement(By.css(".fa-times:nth-child(1)")).click()
     // 11 | assertText | css=.user-handle | @JaviM02
     // USERNAME
     assert(await driver.findElement(By.css(".user-handle")).getText() == "@JaviM02")
