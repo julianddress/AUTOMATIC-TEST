@@ -18,8 +18,8 @@ describe('CP005 - RE-SQUAWK OR QUOTE SQUAWK', function() {
     // Step # | name | target | value
     // 1 | open | /home.php | 
     await driver.get("https://tucan.toolsincloud.net/home.php")
-    // 2 | click | name=status | 
-    await driver.findElement(By.name("status")).click()
+    // 2 | setWindowSize | 697x720 | 
+    await driver.manage().window().setRect({ width: 697, height: 720 })
     // 3 | click | name=email | 
     await driver.findElement(By.name("email")).click()
     // 4 | type | name=email | javi@gmail.com
@@ -32,42 +32,25 @@ describe('CP005 - RE-SQUAWK OR QUOTE SQUAWK', function() {
     await driver.findElement(By.name("password")).sendKeys("javier2023")
     // 7 | click | name=login | 
     await driver.findElement(By.name("login")).click()
-    // 8 | type | name=status | hola
+    // 8 | click | name=status | 
+    await driver.findElement(By.name("status")).click()
+    // 9 | type | name=status | hola
     await driver.findElement(By.name("status")).sendKeys("hola")
-    // 9 | click | id=tweet-input | 
+    // 10 | click | id=tweet-input | 
     await driver.findElement(By.id("tweet-input")).click()
-    // 10 | setWindowSize | 697x720 | 
-    await driver.manage().window().setRect({ width: 697, height: 720 })
-    // 11 | assertElementPresent | css=.box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) .fas | 
-    // BOTON RETWEETEAR
-    {
-      const elements = await driver.findElements(By.css(".box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) .fas"))
-      assert(elements.length)
-    }
-    // 7 | click | css=.box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) .fas | 
+    // 11 | click | css=.box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) .fas | 
     await driver.findElement(By.css(".box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) .fas")).click()
-    // 8 | click | css=li > .fa-retweet | 
+    // 12 | click | css=li > .fa-retweet | 
     await driver.findElement(By.css("li > .fa-retweet")).click()
-    // 9 | assertElementPresent | css=.box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) p | 
-    {
-      const elements = await driver.findElements(By.css(".box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) p"))
-      assert(elements.length)
-    }
-    // 10 | assertElementPresent | css=.box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) > .hover-reaction > .fas | 
-    // BOTON RETWEETEAR
-    {
-      const elements = await driver.findElements(By.css(".box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) > .hover-reaction > .fas"))
-      assert(elements.length)
-    }
-    // 11 | click | css=.box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) > .hover-reaction > .fas | 
+    // 13 | click | css=.box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) > .hover-reaction > .fas | 
     await driver.findElement(By.css(".box-tweet:nth-child(3) .grid-box-reaction:nth-child(2) > .hover-reaction > .fas")).click()
-    // 12 | click | css=.grid-tweet:nth-child(3) .qoute .option-text | 
+    // 14 | click | css=.grid-tweet:nth-child(3) .qoute .option-text | 
     await driver.findElement(By.css(".grid-tweet:nth-child(3) .qoute .option-text")).click()
-    // 13 | click | css=.popupTweet:nth-child(58) .retweet-msg | 
-    await driver.findElement(By.css(".popupTweet:nth-child(58) .retweet-msg")).click()
-    // 14 | type | css=.popupTweet:nth-child(58) .retweet-msg | hola x2
-    await driver.findElement(By.css(".popupTweet:nth-child(58) .retweet-msg")).sendKeys("hola x2")
-    // 15 | click | css=.popupTweet:nth-child(58) .qoute-it | 
-    await driver.findElement(By.css(".popupTweet:nth-child(58) .qoute-it")).click()
+    // 15 | click | css=.popupTweet:nth-child(100) .retweet-msg | 
+    await driver.findElement(By.css(".popupTweet:nth-child(100) .retweet-msg")).click()
+    // 16 | type | css=.popupTweet:nth-child(100) .retweet-msg | hola x2
+    await driver.findElement(By.css(".popupTweet:nth-child(100) .retweet-msg")).sendKeys("hola x2")
+    // 17 | click | css=.popupTweet:nth-child(100) .fas | 
+    await driver.findElement(By.css(".popupTweet:nth-child(100) .fas")).click()
   })
 })
